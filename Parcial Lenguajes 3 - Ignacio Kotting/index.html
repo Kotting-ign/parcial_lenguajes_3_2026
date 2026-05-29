@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inscripción</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+<div class="contenedor-formulario">
+    <h2>Inscripción al Curso</h2>
+    
+    <form id="formularioInscripcion">
+        <div class="grupo-control">
+            <label for="nombre">Nombre y Apellido:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez">
+            <div id="errorNombre" class="error-msg"></div>
+        </div>
+
+        <div class="grupo-control">
+            <label for="dni">DNI (8 dígitos):</label>
+            <input type="text" id="dni" name="dni" maxlength="8" oninput="this.value = this.value.replace(/[^0-9]/g, '');" placeholder="Ej. 12345678">
+            <div id="errorDNI" class="error-msg"></div>
+        </div>
+
+        <div class="grupo-control">
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+            <div id="errorFecha" class="error-msg"></div>
+        </div>
+
+        <button type="button" id="btnEnviar" onclick="validarFormulario()">Enviar Inscripción</button>
+        <button type="button" id="btnPreguntas" onclick="hacerPreguntas()" class="btn-secundario">Responder Preguntas</button>
+        
+        <div id="mensajeExito"></div>
+        <div id="contenedorRespuestas"></div>
+    </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
